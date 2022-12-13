@@ -13,7 +13,10 @@ namespace back_end.repositorios
                 new Genero() { Id = 2, Nombre = "terror" },
                 new Genero() { Id = 3, Nombre = "anime" }
             };
+            guid = Guid.NewGuid();
         }
+
+        public Guid guid;
 
         public List<Genero> ObternerTodosLosGeneros()
         {
@@ -24,6 +27,16 @@ namespace back_end.repositorios
             await Task.Delay(TimeSpan.FromSeconds(3));
             return generos.FirstOrDefault(x => x.Id == Id);
 
+        }
+        //public Guid ObtenerGUID()
+        //{
+        //    return guid;
+        //}
+
+        public void CrearGenero(Genero genero)
+        {
+            genero.Id = generos.Count() + 1;
+            generos.Add(genero);
         }
     }
 }
