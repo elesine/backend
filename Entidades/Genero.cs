@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using back_end.Validaciones;
+using System.ComponentModel.DataAnnotations;
 
 namespace back_end.Entidades
 {
@@ -6,6 +7,7 @@ namespace back_end.Entidades
     {
         public int Id { get; set; }
 
+        [PrimeraLetraMayuscula]
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(maximumLength: 10)]
         public string Nombre { get; set; }
@@ -16,6 +18,5 @@ namespace back_end.Entidades
         public string TarjetaDeCredito { get; set; }
         [Url]
         public string URL { get; set; }
-
     }
 }
